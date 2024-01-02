@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/login.css" />
-    <title>Pinterest | Login</title>
+    <title>Pinterest</title>
   </head>
   <body>
     <div class="container">
@@ -15,6 +15,10 @@
           class="img1"
         />
         <p class="header">Log in to see more</p>
+        <% if(err.length > 0 ) { %>
+          <p class="error"><%= err %> </p>
+        <% } %>
+          
         <form action="/login" method="post">
           <input type="text" name="username" placeholder="Username" class="detail" /><br />
           <input type="password" name="password" placeholder="Password" class="detail" />

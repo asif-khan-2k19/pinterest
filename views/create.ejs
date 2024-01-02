@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/create.css" />
+
+    <title>Pinterest</title>
+  </head>
+  <body>
+    <% include ./partials/navbar.ejs %>
+    <div class="create-pin">
+        <h1>Create new pin.</h1>
+        <div class="upload" id="upload">
+            <img src="https://cdn2.iconfinder.com/data/icons/picons-basic-3/57/basic3-099_cloud_upload-512.png" alt="">
+        </div>
+        <p id="upload-text"></p>
+      <form action="/upload" method="post" enctype="multipart/form-data" id="pin-creator">
+        <input type="file" hidden name="file" class="upload-btn" />
+        <textarea type="text" name="filecaption" class="caption-inp" placeholder="Caption..."/></textarea><br>
+        <button type="submit" class="upload-submit" >Upload</button>
+      </form>
+    </div>
+
+    <script>
+        document.querySelector("#upload").addEventListener("click", function(){
+          document.querySelector("#pin-creator input").click();
+        });
+
+        document.querySelector("#pin-creator input").addEventListener("change", function(){
+            document.querySelector("#upload-text").textContent = "File Uploaded Successfully";
+        })
+
+    </script>
+  </body>
+</html>

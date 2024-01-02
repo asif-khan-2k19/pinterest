@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: #111111; */
+}
+.create-pin {
+  width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.upload {
+  margin-top: 40px;
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background-color: #ebebeb;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed rgb(121, 121, 121);
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+}
+.upload img {
+  height: 100%;
+  opacity: .7;
+}
+.caption-inp {
+  padding: 10px 15px;
+  min-width: 400px;
+  min-height: 45px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  font-size: 17px;
+  border: 1px solid black;
+}
+.upload-submit {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 14px;
+  color: white;
+  font-weight: 600;
+  background-color: red;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-submit:hover {
+  background-color: rgb(234, 3, 3);
+}

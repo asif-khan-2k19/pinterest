@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #dadada;
+  background-color: #efefef;
   font-family: Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@ body {
 .container {
   background-color: white;
   width: 400px;
-  height: 500px;
+  height: 530px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px  rgba(0, 0, 0, 0.3);
 }
@@ -101,4 +101,11 @@ hr {
   padding: 11px 0px;
   background-color: rgb(241, 236, 236);
   border-radius: 20px;
+}
+
+.error{
+  font-weight: 500;
+  color: red;
+  margin: 7px 0px;
+  font-size: 12px;
 }

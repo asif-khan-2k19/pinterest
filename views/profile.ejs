@@ -1,11 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <a href="/logout">logout</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/navbar.css" />
+    <link rel="stylesheet" href="/stylesheets/profile.css" />
+    <title>Pinterest</title>
+  </head>
+  <body>
+    <% include ./partials/navbar.ejs %>
+
+    <div class="container">
+      <div class="card">
+        <div class="profile-picture">
+          <form
+            hidden
+            action="/fileupload"
+            method="post"
+            enctype="multipart/form-data"
+            id="uploadform"
+          >
+            <input type="file" name="image" />
+          </form>
+          <span class="edit" id="uploadicon">
+            <i class="ri-pencil-fill"></i>
+          </span>
+          <img src="/images/uploads/<%= user.dp %>" alt="Profile Picture" />
+        </div>
+        <h2 class="name"><%= user.fullname %></h2>
+        <h3 class="username">@<%= user.username %></h3>
+        <p class="following">0 following</p>
+        <a href="/logout" class="button">Logout</a>
+        <a href="#" class="button">Edit profile</a>
+      </div>
+    </div>
+    <!-- <div class="posts">
+      <div class="cards">
+        <% user.posts.forEach(function(post){ %>
+        <div class="card">
+          <img src="/images/uploads/<%= post.image %>" class="card-img-top" />
+          <div class="card-body">
+            <h5 class="card-title"><%= post.imageText %></h5>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div> -->
+    <div class="posts">
+      <div class="cards">
+        <div class="card">
+          <a href="/created/pins">
+            <img
+              src="/images/uploads/<%= user?.posts[0]?.image %>"
+              class="card-img-top"
+            />
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Your created pins</h5>
+          <h6 class="pin-count"><%= user.posts.length %> Pins</h6>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelector("#uploadicon")
+        .addEventListener("click", function () {
+          document.querySelector("#uploadform input").click();
+        });
+      document
+        .querySelector("#uploadform input")
+        .addEventListener("change", function () {
+          document.querySelector("#uploadform").submit();
+        });
+    </script>
+  </body>
 </html>

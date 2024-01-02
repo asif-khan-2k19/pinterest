@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1, user-scalable=0"
     />
     <link rel="stylesheet" href="/stylesheets/navbar.css" />
-    <link rel="stylesheet" href="/stylesheets/feed.css" />
+    <link rel="stylesheet" href="/stylesheets/createdPosts.css" />
     <title>Pinterest</title>
   </head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -18,9 +18,10 @@
 
   <body>
     <% include ./partials/navbar.ejs %>
+    <h1>Created pins</h1>
     
     <div class="container">
-      <% posts.forEach(function(post){ %>
+      <% user.posts.forEach(function(post){ %>
       <div class="box">
         <img src="/images/uploads/<%= post.image %>" class="card-img-top" />
         <div class="card-body">
@@ -29,7 +30,7 @@
       </div>
       <% }) %>
     </div>
-    
+
     <script>
       const navSlide = () => {
         const lines = document.querySelector(".lines");
@@ -38,12 +39,12 @@
         lines.addEventListener("click", () => {
           nav.classList.toggle("nav-active");
 
-          //Line Animation
           lines.classList.toggle("toggle");
         });
       };
 
       navSlide();
+
     </script>
   </body>
 </html>
